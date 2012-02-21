@@ -8,6 +8,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 public class WatchService extends Service {
@@ -22,6 +23,7 @@ public class WatchService extends Service {
 		String message = getResources().getStringArray(R.array.messages)[now
 				.getHours()];
 
+		Log.v("WatchWidgetProvider", time);
 		updateLargeWidget(time, message);
 		updateSmallWidget(message);
 	}

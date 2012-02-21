@@ -8,7 +8,6 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 public class WatchWidgetProvider extends AppWidgetProvider {
 
@@ -43,7 +42,7 @@ public class WatchWidgetProvider extends AppWidgetProvider {
 	private void setAlarm(Context context, Calendar cal) {
 
 		// AlermManagerで通知を開始
-		Intent intent = new Intent(context, WatchWidgetProvider.class);
+		Intent intent = new Intent(context, this.getClass());
 		intent.setAction(ACTION_START_ALARM);
 
 		PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0,
@@ -53,7 +52,6 @@ public class WatchWidgetProvider extends AppWidgetProvider {
 		AlarmManager am = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
 
-		Log.v("WatchWidgetProvider", cal.getTime().toString());
 		am.set(AlarmManager.RTC, cal.getTimeInMillis(), pendingIntent);
 	}
 
