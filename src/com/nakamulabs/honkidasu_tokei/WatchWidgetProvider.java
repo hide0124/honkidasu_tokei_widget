@@ -38,7 +38,7 @@ public class WatchWidgetProvider extends AppWidgetProvider {
 
 		super.onReceive(context, intent);
 	}
-	
+
 	private void setAlarm(Context context, Calendar cal) {
 
 		// AlermManagerで通知を開始

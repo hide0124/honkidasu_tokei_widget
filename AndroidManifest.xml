@@ -34,7 +34,11 @@
                 android:resource="@xml/small_watch_provider" />
         </receiver>
 
-        <service android:name="WatchService" />
+        <service android:name="WatchService" >
+            <intent-filter >
+                <action android:name="com.nakamulabs.honkidasu_tokei.ACTION_CLICK" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
